@@ -13,7 +13,7 @@
             name="earthquake"
             type="com.crop.ezdevelopment.myhearthquake.Earthquake"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_vertical_margin"
@@ -53,6 +53,6 @@
             app:layout_constraintTop_toBottomOf="@+id/date"
             android:text="@{earthquake.details}"
             tools:text="Ejemplo det" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

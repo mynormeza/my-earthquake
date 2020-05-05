@@ -13,7 +13,7 @@
     <string name="search_results">Search Results</string>
     <string name="earthquake_channel_name">New earthquake!</string>
     <string name="appbar_scrolling_view_behavior" translatable="false"
-        tools:override="true">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+        tools:override="true">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="tab_list">List</string>
     <string name="tab_map">Map</string>
     <string name="widget_blank_magnitude">-------</string>

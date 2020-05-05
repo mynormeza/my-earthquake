@@ -1,9 +1,9 @@
 package com.crop.ezdevelopment.myhearthquake;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
 
 public class PreferencesActivity extends AppCompatActivity {
     public static final String PREF_AUTO_UPDATE = "PREF_AUTO_UPDATE";

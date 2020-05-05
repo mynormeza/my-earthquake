@@ -2,31 +2,26 @@ package com.crop.ezdevelopment.myhearthquake;
 
 import android.app.SearchManager;
 import android.app.SearchableInfo;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements EarthquakeListFragment.OnListFragmentInteractionListener {
     private final static String TAG_LIST_FRAGMENT = "TAG_LIST_FRAGMENT";
@@ -63,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements EarthquakeListFra
 //        }else {
 //            mEarthquakeListFragment = (EarthquakeListFragment) fm.findFragmentByTag(TAG_LIST_FRAGMENT);
 //        }
-        earthquakeViewModel = ViewModelProviders.of(this).get(EarthquakeViewModel.class);
+        earthquakeViewModel = new ViewModelProvider(this).get(EarthquakeViewModel.class);
         /*Date now = Calendar.getInstance().getTime();
         List<Earthquake> dummyQuakes = new ArrayList<Earthquake>(0);
         dummyQuakes.add(new Earthquake("0", now, "San Jose", null, 7.3, null));

@@ -1,6 +1,6 @@
 package com.crop.ezdevelopment.myhearthquake;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 import android.location.Location;
 
 import java.util.Date;
