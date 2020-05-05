@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.crop.ezdevelopment.myhearthquake">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultActivity"
+                />
+        </activity>
+        <activity android:name=".PreferencesActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <provider
+            android:name=".EarthquakeSearchProvider"
+            android:authorities="com.crop.ezdevelopment.provider.myhearthquake" />
+
+        <activity android:name=".SearchResultActivity"
+            android:label="@string/search_results"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <service android:name=".EarthquakeUpdateJobService"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="com.firebase.jobdispatcher.ACTION_EXECUTE">
+                </action>
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".EarthquakeWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/quake_widget_info"
+                />
+        </receiver>
+
+        <receiver
+            android:name=".EarthqakeListWidget"
+            android:label="Earthquake List">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/quake_list_widget_info"
+                />
+        </receiver>
+
+        <service
+            android:name=".EarthquakeRemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS">
+        </service>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAsXjUuUbMIoV0Wacqd5suz8u7oJStWhyU"
+            />
+
+    </application>
+
+</manifest>
